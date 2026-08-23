@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import com.example.examplemod.block.ModBlocks;
 import com.example.examplemod.entity.ModEntities;
 import com.example.examplemod.item.ModItems;
 import org.slf4j.Logger;
@@ -91,6 +92,8 @@ public class ExampleMod {
 
 
         ModItems.ITEMS.register(modEventBus);
+
+        ModBlocks.BLOCKS.register(modEventBus);
 
         ModEntities.ENTITY_TYPES.register(modEventBus);
     }

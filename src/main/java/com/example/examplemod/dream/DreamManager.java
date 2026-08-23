@@ -1,7 +1,6 @@
 package com.example.examplemod.dream;
 
 import com.example.examplemod.entity.ModEntities;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -14,6 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
+
+//i made that in forge so i just had to transfer it to neofroge api about the same logic
 public class DreamManager {
     private static final ResourceKey<Level> DREAM_DIM = ResourceKey.create(
             net.minecraft.core.registries.Registries.DIMENSION,
@@ -42,7 +44,7 @@ public class DreamManager {
 
         MinecraftServer server = ((ServerLevel) player.level()).getServer();
         var dreamLevel = server.getLevel(DREAM_DIM);
-        if (dreamLevel == null) return; // dimension not loaded/registered - check datapack files
+        if (dreamLevel == null) return;
 
         player.teleportTo(dreamLevel, 0.5, 65.0, 0.5, java.util.Set.of(), 0.0F, 0.0F, false);
         activeTimers.put(player.getUUID(), DREAM_DURATION_TICKS);
