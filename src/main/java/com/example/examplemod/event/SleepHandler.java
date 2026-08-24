@@ -1,6 +1,7 @@
 package com.example.examplemod.event;
 
 import com.example.examplemod.dream.DreamManager;
+import com.example.examplemod.grief.GriefManager;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -26,6 +27,8 @@ public class SleepHandler {
         if (player.isSleeping() && DreamManager.isPending(player)) {
             DreamManager.enterDream(player);
         }
+        GriefManager.checkDailyGrief(player);
+        GriefManager.checkEmblemDrain(player);
 
         DreamManager.tick(player);
     }

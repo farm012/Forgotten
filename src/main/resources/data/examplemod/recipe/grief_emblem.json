@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRE",
+    "RDR",
+    " R "
+  ],
+  "key": {
+    "R": { "id": "examplemod:comrades_remains" },
+    "E": { "id": "examplemod:guardian_essence" },
+    "D": { "id": "minecraft:diamond" }
+  },
+  "result": {
+    "id": "examplemod:grief_emblem"
+  }
+}
