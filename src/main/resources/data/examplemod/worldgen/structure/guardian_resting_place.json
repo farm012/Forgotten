@@ -1,14 +1,15 @@
 {
   "type": "minecraft:jigsaw",
-  "start_pool": "examplemod:guardian_resting_place",
-  "size": 0,
-  "max_distance_from_center": 80,
-  "biomes": "minecraft:plains",
+  "biomes": "#minecraft:is_overworld",
   "step": "surface_structures",
+  "terrain_adaptation": "beard_box",
+  "spawn_overrides": {},
+  "start_pool": "examplemod:guardian_resting_place",
+  "size": 1,
   "start_height": {
     "absolute": 0
   },
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
-  "use_expansion_hack": false,
-  "spawn_overrides": {}
+  "max_distance_from_center": 10,
+  "use_expansion_hack": false
 }

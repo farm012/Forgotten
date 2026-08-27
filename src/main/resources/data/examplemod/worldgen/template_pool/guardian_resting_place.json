@@ -1,13 +1,15 @@
 {
+  "name": "examplemod:guardian_resting_place",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "minecraft:village/plains/houses/plains_fisher_cottage",
         "projection": "rigid",
-        "processors": "minecraft:empty"
+        "location": "examplemod:guardian_resting_place",
+        "processors": "minecraft:empty",
+        "override_liquid_settings": "ignore_waterlogging"
       }
     }
   ]
