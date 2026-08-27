@@ -6,9 +6,9 @@
     " R "
   ],
   "key": {
-    "R": { "id": "examplemod:comrades_remains" },
-    "E": { "id": "examplemod:guardian_essence" },
-    "D": { "id": "minecraft:diamond" }
+    "R": "examplemod:comrades_remains",
+    "E": "examplemod:guardian_essence",
+    "D": "minecraft:diamond"
   },
   "result": {
     "id": "examplemod:grief_emblem"

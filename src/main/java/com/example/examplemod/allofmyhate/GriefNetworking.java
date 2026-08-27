@@ -42,15 +42,38 @@ public class GriefNetworking {
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar("1");
         registrar.playToClient(Packet.TYPE, Packet.STREAM_CODEC);
+        registrar.playToClient(FizzlePacket.TYPE, FizzlePacket.STREAM_CODEC); //new fizzle packet, fuck packets
+
     }
 
-    //what happens when the payload arrives on the client
+    //tis happens when it arrives
     @SubscribeEvent
     public static void registerClientHandlers(RegisterClientPayloadHandlersEvent event) {
         event.register(Packet.TYPE, (packet, context) -> clientGrief = packet.grief());
+        event.register(FizzlePacket.TYPE, (packet, context) -> clientFizzle = packet.progress());
+
     }
 
     public static void sendToPlayer(ServerPlayer player, int grief) {
         PacketDistributor.sendToPlayer(player, new Packet(grief));
     }
+
+    public record FizzlePacket(float progress) implements CustomPacketPayload {
+        public static final Type<FizzlePacket> TYPE =
+                new Type<>(Identifier.fromNamespaceAndPath("examplemod", "fizzle_sync"));
+
+        public static final StreamCodec<RegistryFriendlyByteBuf, FizzlePacket> STREAM_CODEC =
+                StreamCodec.composite(
+                        ByteBufCodecs.FLOAT, FizzlePacket::progress,
+                        FizzlePacket::new
+                );
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    private static float clientFizzle = 0f;
+    public static float getClientFizzle() { return clientFizzle; }
 }

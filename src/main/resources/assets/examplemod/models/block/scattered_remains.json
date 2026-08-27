@@ -2,13 +2,14 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "dirt",
-		"1": "block/Tombtexture",
-		"2": "block/face",
-		"3": "block/bone",
-		"4": "block/blood",
-		"particle": "dirt"
-	},
+             "0": "minecraft:block/dirt",
+             "1": "examplemod:block/tombtexture",
+             "2": "examplemod:block/face",
+             "3": "examplemod:block/bone",
+             "4": "examplemod:block/blood",
+
+               "particle": "minecraft:block/dirt"
+},
 	"elements": [
 		{
 			"from": [0, 0, 0],

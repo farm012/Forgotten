@@ -12,7 +12,7 @@ public class ScatteredRemainsBlock extends Block {
         super(properties);
     }
 
-    // flat, walkable shape like a carpet not full cube
+    //flat, walkable shape like a carpet not full cube
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Block.box(0, 0, 0, 16, 2, 16);
