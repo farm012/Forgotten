@@ -116,9 +116,9 @@ public class DeadComrade extends Zombie {
                             SoundEvents.ENDERMAN_SCREAM,
                             net.minecraft.sounds.SoundSource.HOSTILE, 0.9F, pitch);
 
-                    // the closer it is, the more urgently it talks - down to a 2-4s floor
-                    double closeness = Math.max(0, (8.0D - dist) / 8.0D); // 0 far, 1 right on top of you
-                    int baseCooldown = (int)(100 - closeness * 60); // 100 far -> 40 close, in ticks
+                    // the closer it is, the more urgently it talks down to a 2-4s floor
+                    double closeness = Math.max(0, (8.0D - dist) / 8.0D);
+                    int baseCooldown = (int)(100 - closeness * 60);
                     mob.blameCooldown = baseCooldown + mob.getRandom().nextInt(60);
                 }
             }

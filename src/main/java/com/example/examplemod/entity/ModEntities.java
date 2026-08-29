@@ -28,4 +28,12 @@ public class ModEntities {
                     .build(ResourceKey.create(Registries.ENTITY_TYPE,
                             Identifier.fromNamespaceAndPath("examplemod", "tomb_guardian")))
     );
+
+    public static final Supplier<EntityType<GrievingSoul>> GRIEVING_SOUL = ENTITY_TYPES.register(
+            "grieving_soul",
+            () -> EntityType.Builder.of(GrievingSoul::new, MobCategory.CREATURE)
+                    .sized(0.6f, 1.95f)
+                    .build(ResourceKey.create(Registries.ENTITY_TYPE,
+                            Identifier.fromNamespaceAndPath("examplemod", "grieving_soul")))
+    );
 }

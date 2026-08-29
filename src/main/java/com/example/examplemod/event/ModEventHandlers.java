@@ -1,5 +1,6 @@
 package com.example.examplemod.event;
 
+import com.example.examplemod.entity.GrievingSoul;
 import com.example.examplemod.entity.ModEntities;
 import com.example.examplemod.item.ModItems;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -22,10 +23,13 @@ public class ModEventHandlers {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.DEAD_COMRADE.get(), Zombie.createAttributes().build());
+
         event.put(ModEntities.TOMB_GUARDIAN.get(),
                 Zombie.createAttributes()
                         .add(Attributes.MAX_HEALTH, 200.0D)
                         .build());
+
+        event.put(ModEntities.GRIEVING_SOUL.get(), GrievingSoul.createAttributes().build());
     }
 
 }

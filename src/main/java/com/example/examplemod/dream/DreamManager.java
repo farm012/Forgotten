@@ -1,6 +1,7 @@
 package com.example.examplemod.dream;
 
 import com.example.examplemod.allofmyhate.GriefNetworking;
+import com.example.examplemod.ambient.AmbientSoundManager;
 import com.example.examplemod.entity.ModEntities;
 import com.example.examplemod.grief.GriefManager;
 import net.minecraft.resources.ResourceKey;
@@ -12,10 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 
 //i made that in forge so i just had to transfer it to neofroge api about the same logic
@@ -35,8 +33,12 @@ public class DreamManager {
     //troubles
 
 
-    private static final int FREEZE_DURATION_TICKS = 15; // ~0.75s
+    private static final int FREEZE_DURATION_TICKS = 15;
     private static final Map<UUID, Integer> freezeTicks = new HashMap<>();
+
+
+
+    private static final Set<UUID> structureHintGiven = new HashSet<>();
 
 
 
@@ -86,12 +88,52 @@ public class DreamManager {
         if (dreamLevel == null) return;
 
         player.teleportTo(dreamLevel, 0.5, -61.0, 0.5, java.util.Set.of(), 0.0F, 0.0F, false);
+
+        AmbientSoundManager.playDreamEntryAmbience(player, dreamLevel);
+
+
+
         activeTimers.put(player.getUUID(), DREAM_DURATION_TICKS);
         spawnedCount.put(player.getUUID(), 0);
 
         spawnComrade(player, dreamLevel);
     }
 
+//I SWEAR I WILL STOP ADDING METHods here ;-;
+private static void hintAtStructure(ServerPlayer player) {
+    UUID id = player.getUUID();
+    if (structureHintGiven.contains(id)) return;
+
+    ServerLevel level = (ServerLevel) player.level();
+
+    var structureKey = net.minecraft.resources.ResourceKey.create(
+            net.minecraft.core.registries.Registries.STRUCTURE,
+            net.minecraft.resources.Identifier.fromNamespaceAndPath("examplemod", "guardian_resting_place"));
+
+    var structureHolder = level.registryAccess()
+            .lookupOrThrow(net.minecraft.core.registries.Registries.STRUCTURE)
+            .get(structureKey);
+
+    if (structureHolder.isEmpty()) return;
+
+    var holderSet = net.minecraft.core.HolderSet.direct(structureHolder.get());
+
+    var result = level.getChunkSource().getGenerator().findNearestMapStructure(
+            level, holderSet, player.blockPosition(), 200, false);
+
+    if (result == null) return;
+
+    net.minecraft.core.BlockPos pos = result.getFirst();
+
+    player.sendSystemMessage(
+            net.minecraft.network.chat.Component.literal(
+                            "Something tells you that you need to visit this place: [" +
+                                    pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + "]")
+                    .withStyle(net.minecraft.ChatFormatting.DARK_PURPLE, net.minecraft.ChatFormatting.ITALIC)
+    );
+
+    structureHintGiven.add(id); // mark as given - never fires again for this player
+}
     private static void sendNextWakeMessage(ServerPlayer player) {
         UUID id = player.getUUID();
         int index = wakeMessageIndex.getOrDefault(id, 0);
@@ -212,6 +254,10 @@ public class DreamManager {
         player.setHealth(player.getMaxHealth() / 2.0F);
 
         sendNextWakeMessage(player);
+
+        hintAtStructure(player);
+
+
 
     }
 }// THIS IS A MESS I will nOT AT ANNYTHING IN HERE ANYMORE 219 lines ;-;

@@ -15,7 +15,7 @@ public class SleepHandler {
     @SubscribeEvent
     public static void onSleep(CanPlayerSleepEvent event) {
         ServerPlayer player = event.getEntity();
-       if (GriefManager.getGrief(player) == 0) return; // no grief nothing to dream about bruh..., i will make it negative tho
+       if (GriefManager.getGrief(player) < 0) return; // no grief nothing to dream about bruh..., i will make it negative tho
         if (player.getRandom().nextFloat() < 0.30F) {
             DreamManager.markPending(player);
         } else {
