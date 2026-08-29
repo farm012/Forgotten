@@ -13,6 +13,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -25,9 +26,13 @@ public class DreamManager {
     );
     private static final int DREAM_DURATION_TICKS = 1200; // name is explanetory ;-;
     private static final int SPAWN_INTERVAL_TICKS = 60;   // one comrade per second might change
-    private static final int MAX_ACTIVE_COMRADES = 24;      // safety cap so it doesn't spiral
+    private static final int MAX_ACTIVE_COMRADES = 8;      // safety cap so it doesn't spiral
     private static final int FIZZLE_DURATION_TICKS = 120;
 
+    //i need to start commenting so this is for messages when you wake up just.. as you can see ;-;
+    private static final Map<UUID, List<String>> pendingWakeMessages = new HashMap<>();
+    private static final Map<UUID, Integer> wakeMessageTimer = new HashMap<>();
+    //troubles
 
 
     private static final int FREEZE_DURATION_TICKS = 15; // ~0.75s
@@ -35,10 +40,21 @@ public class DreamManager {
 
 
 
+    private static final String[] WAKE_MESSAGES = {
+            "Impending doom approaches.",
+            "The curse of the dead consumes your vitality.",
+            "Something followed you back.",
+            "You are not safe here either.",
+            "It remembers your face."
+    };
+
+    private static final Map<UUID, Integer> wakeMessageIndex = new HashMap<>();
+
+
 
     private static final Map<UUID, Integer> spawnedCount = new HashMap<>();
 
-
+    //wtv
     private static final Map<UUID, Boolean> pending = new HashMap<>();
     private static final Map<UUID, Integer> activeTimers = new HashMap<>();
     private static final Map<UUID, ResourceKey<Level>> returnDimension = new HashMap<>();
@@ -54,6 +70,8 @@ public class DreamManager {
     public static boolean isPending(ServerPlayer player) {
         return pending.getOrDefault(player.getUUID(), false);
     }
+
+
 
 
     public static void enterDream(ServerPlayer player) {
@@ -74,8 +92,23 @@ public class DreamManager {
         spawnComrade(player, dreamLevel);
     }
 
-    public static void tick(ServerPlayer player) {
+    private static void sendNextWakeMessage(ServerPlayer player) {
         UUID id = player.getUUID();
+        int index = wakeMessageIndex.getOrDefault(id, 0);
+        if (index >= WAKE_MESSAGES.length) return; // ran out - stay silent from here on, or loop if you'd rather
+
+        player.sendSystemMessage(
+                net.minecraft.network.chat.Component.literal(WAKE_MESSAGES[index])
+                        .withStyle(net.minecraft.ChatFormatting.DARK_RED, net.minecraft.ChatFormatting.BOLD)
+        );
+        wakeMessageIndex.put(id, index + 1);
+    }
+
+    public static void tick(ServerPlayer player) {
+
+
+        UUID id = player.getUUID();
+
         if (!activeTimers.containsKey(id)) return;
 
         int remaining = activeTimers.get(id) - 1;
@@ -156,6 +189,8 @@ public class DreamManager {
     }
     private static void endDream(ServerPlayer player) {
 
+
+
         UUID id = player.getUUID();
         activeTimers.remove(id);
         spawnedCount.remove(id);
@@ -175,5 +210,9 @@ public class DreamManager {
 
         player.teleportTo(targetLevel, pos.x, pos.y, pos.z, java.util.Set.of(), 0.0F, 0.0F, false);
         player.setHealth(player.getMaxHealth() / 2.0F);
+
+        sendNextWakeMessage(player);
+
     }
-}// THIS IS A MESS I will nOT AT ANNYTHING IN HERE ANYMORE 179 lines ;-;
+}// THIS IS A MESS I will nOT AT ANNYTHING IN HERE ANYMORE 219 lines ;-;
+//i'm having a rough time codding ;-;

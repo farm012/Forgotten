@@ -1,0 +1,24 @@
+{
+  "parent": "examplemod:grief_grows",
+  "display": {
+    "icon": { "id": "examplemod:grief_emblem" },
+    "title": { "translate": "advancement.examplemod.a_way_out" },
+    "description": { "translate": "advancement.examplemod.a_way_out.desc" },
+    "frame": "goal"
+  },
+  "criteria": {
+    "has_ingredients": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["examplemod:comrades_remains"], "count": { "min": 5 } },
+          { "items": ["examplemod:guardian_essence"] },
+          { "items": ["minecraft:diamond"] }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": ["examplemod:grief_emblem"]
+  }
+}

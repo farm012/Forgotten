@@ -32,8 +32,11 @@ public class ModItems {
                     .component(
                             DataComponents.LORE,
                             new ItemLore(List.of(
-                                    Component.literal("It remembers what you tried to forget.")
-                                            .withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC),
+                                    Component.literal("The Emblem").withStyle(ChatFormatting.BLACK),
+
+                                    Component.literal("Keeps you safe from your own dreams slowly storing your grief turning it into power.")
+                                            .withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.BOLD),
+                                    Component.empty(),
                                     Component.literal("The dead do not rest quietly here.")
                                             .withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC),
                                     Component.empty(),
@@ -42,4 +45,29 @@ public class ModItems {
                             ))
                     )
     );
+
+
+
+
+    //last second thoguht
+    public static final DeferredItem<ZeusLastOathItem> ZEUS_LAST_OATH = ITEMS.registerItem(
+            "zeus_last_oath",
+            props -> new ZeusLastOathItem(
+                    props.sword(net.minecraft.world.item.ToolMaterial.IRON, 3, -2.4f)
+                            .component(
+                                    net.minecraft.core.component.DataComponents.LORE,
+                                    new net.minecraft.world.item.component.ItemLore(List.of(
+                                            Component.literal("Wrath from the sky")
+                                                    .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD),
+                                            Component.literal("Every second strike calls down judgment upon your foe.")
+                                                    .withStyle(ChatFormatting.AQUA)
+                                    ))
+                            )
+            ),
+            props -> props
+    );
+
+
+
+
 }

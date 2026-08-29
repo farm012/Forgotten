@@ -1,0 +1,15 @@
+{
+  "parent": "examplemod:someone_is_watching",
+  "display": {
+    "icon": { "id": "examplemod:guardian_essence" },
+    "title": { "translate": "advancement.examplemod.laid_to_rest" },
+    "description": { "translate": "advancement.examplemod.laid_to_rest.desc" },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "killed_guardian": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": { "entity": { "type": "examplemod:tomb_guardian" } }
+    }
+  }
+}

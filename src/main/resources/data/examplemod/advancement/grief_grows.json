@@ -1,0 +1,12 @@
+{
+  "parent": "examplemod:scattered",
+  "display": {
+    "icon": { "id": "minecraft:soul_sand" },
+    "title": { "translate": "advancement.examplemod.grief_grows" },
+    "description": { "translate": "advancement.examplemod.grief_grows.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "impossible": { "trigger": "minecraft:impossible" }
+  }
+}

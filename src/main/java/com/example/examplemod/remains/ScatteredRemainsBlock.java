@@ -17,4 +17,5 @@ public class ScatteredRemainsBlock extends Block {
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Block.box(0, 0, 0, 16, 2, 16);
     } //just getting started
+    //i should've put that in mod block? eh who cares
 }

@@ -2,6 +2,7 @@ package com.example.examplemod.event;
 
 import com.example.examplemod.entity.ModEntities;
 import com.example.examplemod.item.ModItems;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -21,5 +22,10 @@ public class ModEventHandlers {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.DEAD_COMRADE.get(), Zombie.createAttributes().build());
+        event.put(ModEntities.TOMB_GUARDIAN.get(),
+                Zombie.createAttributes()
+                        .add(Attributes.MAX_HEALTH, 200.0D)
+                        .build());
     }
+
 }

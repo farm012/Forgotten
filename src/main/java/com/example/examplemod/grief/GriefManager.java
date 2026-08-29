@@ -12,10 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 //i kinda forgot to comment on this one but it seems straight forward, just grief system i didn't finish yet
+
+
 public class GriefManager {
     private static final int MAX_GRIEF = 100;
-    private static final int GRIEF_PER_DREAM = 15;
-    private static final int GRIEF_PER_DAY = 10;
+    private static final int GRIEF_PER_DREAM = 10;
+    private static final int GRIEF_PER_DAY = 5;
     private static final int DRAIN_PER_SECOND = 1;
 
 
@@ -28,13 +30,30 @@ public class GriefManager {
 
     public static void addGrief(ServerPlayer player, int amount) {
         int current = getGrief(player);
+        boolean wasZero = current <= 0;
+
         int updated = Math.min(current + amount, MAX_GRIEF);
         grief.put(player.getUUID(), updated);
-
         GriefNetworking.sendToPlayer(player, updated);
+
+        if (wasZero && updated > 0) {
+            awardAdvancement(player, "something_isnt_right");
+        }
+        if (current < 50 && updated >= 50) {
+            awardAdvancement(player, "grief_grows");
+        }
 
         if (updated >= MAX_GRIEF) {
             killFromGrief(player);
+        }
+    }
+
+    private static void awardAdvancement(ServerPlayer player, String name) {
+        var server = ((net.minecraft.server.level.ServerLevel) player.level()).getServer();
+        var advancement = server.getAdvancements().get(
+                net.minecraft.resources.Identifier.fromNamespaceAndPath("examplemod", name));
+        if (advancement != null) {
+            player.getAdvancements().award(advancement, "impossible");
         }
     }
     public static void onDreamEnded(ServerPlayer player) {
@@ -70,6 +89,7 @@ public class GriefManager {
         // I had to settle for just adding potion effects because well.. it is annoying to add it fundementally needs uuids
         player.addEffect(new MobEffectInstance(MobEffects.SPEED, 40, 0, false, false));
         player.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 40, 0, false, false));
+        player.addEffect(new MobEffectInstance(MobEffects.JUMP_BOOST, 40, 0, false, false));
 
         int current = getGrief(player);
         if (current <= 0) return;

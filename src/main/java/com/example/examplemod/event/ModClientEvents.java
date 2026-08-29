@@ -2,7 +2,9 @@ package com.example.examplemod.event;
 
 import com.example.examplemod.entity.DeadComradeRenderer;
 import com.example.examplemod.entity.ModEntities;
+import com.example.examplemod.entity.TombGuardianRenderer;
 import net.minecraft.client.renderer.entity.ZombieRenderer;
+import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -14,5 +16,7 @@ public class ModClientEvents {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.DEAD_COMRADE.get(), DeadComradeRenderer::new);
+        event.registerEntityRenderer(ModEntities.TOMB_GUARDIAN.get(), ZombieRenderer::new);
+        event.registerEntityRenderer(ModEntities.TOMB_GUARDIAN.get(), TombGuardianRenderer::new);
     }
 }
