@@ -43,14 +43,19 @@ public class DreamManager {
 
 
     private static final String[] WAKE_MESSAGES = {
-            "You hear familiar sounds of lost comarades.",
-            "The curse of the dead consumes your vitality.",
-            "Something followed you back.",
-            "You are not safe here either.",
+            "You hear familiar echoes of lost comarades.",
+            "You remember a name now. You wish you didn't.",
+            "You're starting to remember what you did to them.",
+            "You remember everything. You just don't want to.",
             "Impending doom approaches."
     };
 
     private static final Map<UUID, Integer> wakeMessageIndex = new HashMap<>();
+
+
+
+    private static final Set<UUID> hasDreamedOnce = new HashSet<>(); //name self explanetory
+
 
 
 
@@ -97,6 +102,11 @@ public class DreamManager {
         spawnedCount.put(player.getUUID(), 0);
 
         spawnComrade(player, dreamLevel);
+    }
+
+
+    public static boolean hasEnteredDreamBefore(ServerPlayer player) {
+        return hasDreamedOnce.contains(player.getUUID());
     }
 
 //I SWEAR I WILL STOP ADDING METHods here ;-;

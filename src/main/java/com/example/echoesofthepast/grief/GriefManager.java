@@ -26,6 +26,9 @@ public class GriefManager {
 
 
 
+
+
+
     private static final Map<UUID, Integer> grief = new HashMap<>();
     private static final Map<UUID, Long> lastCountedDay = new HashMap<>();
 
@@ -89,6 +92,7 @@ public class GriefManager {
     }
 
     public static void checkDailyGrief(ServerPlayer player) {
+
         ServerLevel level = (ServerLevel) player.level();
         long currentDay = level.getGameTime() / 24000L;
 

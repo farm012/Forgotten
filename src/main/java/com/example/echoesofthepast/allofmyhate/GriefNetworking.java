@@ -42,7 +42,10 @@ public class GriefNetworking {
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar("1");
         registrar.playToClient(Packet.TYPE, Packet.STREAM_CODEC);
-        registrar.playToClient(FizzlePacket.TYPE, FizzlePacket.STREAM_CODEC); //new fizzle packet, fuck packets
+        registrar.playToClient(FizzlePacket.TYPE, FizzlePacket.STREAM_CODEC);//new fizzle packet, fuck packets
+
+
+        registrar.playToClient(SleepPromptPacket.TYPE, SleepPromptPacket.STREAM_CODEC);
 
     }
 
@@ -52,6 +55,9 @@ public class GriefNetworking {
         event.register(Packet.TYPE, (packet, context) -> clientGrief = packet.grief());
         event.register(FizzlePacket.TYPE, (packet, context) -> clientFizzle = packet.progress());
 
+
+        event.register(SleepPromptPacket.TYPE, (packet, context) ->
+                sleepPromptShowUntil = System.currentTimeMillis() + 3000);
     }
 
     public static void sendToPlayer(ServerPlayer player, int grief) {
@@ -76,4 +82,24 @@ public class GriefNetworking {
 
     private static float clientFizzle = 0f;
     public static float getClientFizzle() { return clientFizzle; }
+
+
+
+
+    public record SleepPromptPacket() implements CustomPacketPayload {
+        public static final Type<SleepPromptPacket> TYPE =
+                new Type<>(Identifier.fromNamespaceAndPath("echoesofthepast", "sleep_prompt"));
+
+        public static final StreamCodec<RegistryFriendlyByteBuf, SleepPromptPacket> STREAM_CODEC =
+                StreamCodec.unit(new SleepPromptPacket());
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    private static long sleepPromptShowUntil = 0L;
+
+    public static long getSleepPromptShowUntil() { return sleepPromptShowUntil; }
 }

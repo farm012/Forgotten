@@ -34,15 +34,22 @@ public class StarterItemHandler {
                                 Component.literal("Your memory seems fuzzy as you enter this place.\n\nPast events have blurred, slipping just out of reach.")
                         ),
                         Filterable.passThrough(
-                                Component.literal("Yet something uneasy dawns at the back of your mind.")
+                                Component.literal("Yet something uneasy dawns at the back of your mind. You wake up somewhere you don't recognize.\n\nYou try to remember how you got here. Nothing comes. Just the feeling that something is missing.")
                         ),
                         Filterable.passThrough(
-                                Component.literal("Sleep will not be kind to you here.")
+                                Component.literal("Do not sleep unless you're ready to remember.\n\nThey are waiting for you there. They have been waiting a long time.")
+                        ),
+                        Filterable.passThrough(
+                                Component.literal("Guardians from the history and the past seems to be guarding something.")
                         )
                 ),
                 true
         ));
         player.getInventory().add(book);
+
+
+        com.example.echoesofthepast.grief.GriefManager.addGrief(player, 1);
+
         tag.putBoolean("echoesofthepast_journal_given", true);
     }
 }

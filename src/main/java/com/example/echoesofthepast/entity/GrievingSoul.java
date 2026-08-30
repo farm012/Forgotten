@@ -43,6 +43,11 @@ public class GrievingSoul extends PathfinderMob {
                 .add(Attributes.MOVEMENT_SPEED, 0.0D); // never moves
     }
 
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
+    }
     @Override
     public boolean isInvulnerableTo(net.minecraft.server.level.ServerLevel level, DamageSource source) {
         return true;

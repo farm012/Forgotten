@@ -15,13 +15,28 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems("echoesofthepast");
     //creation of items is important
-    public static final DeferredItem<Item> COMRADES_REMAINS = ITEMS.registerSimpleItem("comrades_remains");
+    public static final DeferredItem<Item> COMRADES_REMAINS = ITEMS.registerItem(
+            "comrades_remains", Item::new, props -> props
+                    .component(DataComponents.LORE,
+                            new ItemLore(List.of(
+                               Component.literal("The last hope to give your friends a place to rest").withStyle(ChatFormatting.RED, ChatFormatting.BOLD)
+                            ))
+
+
+    ));
 
     public static final DeferredItem<net.minecraft.world.item.BlockItem> SCATTERED_REMAINS_ITEM =
             ITEMS.registerSimpleBlockItem(ModBlocks.SCATTERED_REMAINS);
 
     public static final DeferredItem<Item> GUARDIAN_ESSENCE = ITEMS.registerItem(
             "guardian_essence", Item::new, props -> props
+                    .component(DataComponents.LORE,
+                            new ItemLore(List.of(
+                                    Component.literal("It seems that the world is trying to protect something that it pulled figures such as").withStyle(ChatFormatting.DARK_BLUE, ChatFormatting.BOLD),
+                                    Component.literal("Minotaur, Zeus and Anubis").withStyle(ChatFormatting.RED, ChatFormatting.BOLD)
+
+                            ))
+                            )
     );
 
     public static final DeferredItem<Item> GRIEF_EMBLEM = ITEMS.registerItem(//4AM CODDING MY BRAIN ISN4T WORKING SO MAYBE  I WILL CHANGE THE LORE LATER
@@ -40,8 +55,8 @@ public class ModItems {
                                     Component.literal("The dead do not rest quietly here.")
                                             .withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC),
                                     Component.empty(),
-                                    Component.literal("+ Speed").withStyle(ChatFormatting.BLUE),
-                                    Component.literal("+ Strength").withStyle(ChatFormatting.RED)
+                                    Component.literal("+ Speed").withStyle(ChatFormatting.BLUE, ChatFormatting.BOLD),
+                                    Component.literal("+ Strength").withStyle(ChatFormatting.RED, ChatFormatting.BOLD)
                             ))
                     )
     );
