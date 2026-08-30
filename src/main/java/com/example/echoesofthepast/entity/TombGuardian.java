@@ -29,7 +29,7 @@ public class TombGuardian extends Zombie {
     private static final EntityDataAccessor<BlockPos> BOUND_POS =
             SynchedEntityData.defineId(TombGuardian.class, EntityDataSerializers.BLOCK_POS);
 
-    private static final double DETECT_RADIUS = 12.0D;
+    private static final double DETECT_RADIUS = 15.0D;
     private static final double LEASH_RADIUS = 20.0D;
 
     private static final int LIGHTNING_COOLDOWN_TICKS = 200;

@@ -17,7 +17,7 @@ import java.util.UUID;
 public class GriefManager {
     private static final int MAX_GRIEF = 100;
     private static final int GRIEF_PER_DREAM = 10;
-    private static final int GRIEF_PER_DAY = 5;
+    private static final int GRIEF_PER_DAY = 7;
     private static final int DRAIN_PER_SECOND = 1;
 
     private static final int DEATH_DELAY_TICKS = 200;
