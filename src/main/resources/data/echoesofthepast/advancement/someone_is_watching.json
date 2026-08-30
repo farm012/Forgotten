@@ -1,0 +1,15 @@
+{
+  "parent": "echoesofthepast:a_way_out",
+  "display": {
+    "icon": { "id": "minecraft:iron_sword" },
+    "title": { "translate": "advancement.echoesofthepast.someone_is_watching" },
+    "description": { "translate": "advancement.echoesofthepast.someone_is_watching.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "found_structure": {
+      "trigger": "minecraft:location",
+      "conditions": { "structure": "echoesofthepast:guardian_resting_place" }
+    }
+  }
+}

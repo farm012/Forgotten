@@ -1,0 +1,24 @@
+{
+  "parent": "echoesofthepast:grief_grows",
+  "display": {
+    "icon": { "id": "echoesofthepast:grief_emblem" },
+    "title": { "translate": "advancement.echoesofthepast.a_way_out" },
+    "description": { "translate": "advancement.echoesofthepast.a_way_out.desc" },
+    "frame": "goal"
+  },
+  "criteria": {
+    "has_ingredients": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["echoesofthepast:comrades_remains"], "count": { "min": 5 } },
+          { "items": ["echoesofthepast:guardian_essence"] },
+          { "items": ["minecraft:diamond"] }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": ["echoesofthepast:grief_emblem"]
+  }
+}

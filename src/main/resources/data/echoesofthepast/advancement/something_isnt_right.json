@@ -1,0 +1,12 @@
+{
+  "parent": "echoesofthepast:root",
+  "display": {
+    "icon": { "id": "minecraft:black_bed" },
+    "title": { "translate": "advancement.echoesofthepast.something_isnt_right" },
+    "description": { "translate": "advancement.echoesofthepast.something_isnt_right.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "impossible": { "trigger": "minecraft:impossible" }
+  }
+}

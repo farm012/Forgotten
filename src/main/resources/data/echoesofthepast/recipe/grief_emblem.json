@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRE",
+    "RDR",
+    " R "
+  ],
+  "key": {
+    "R": "echoesofthepast:comrades_remains",
+    "E": "echoesofthepast:guardian_essence",
+    "D": "minecraft:diamond"
+  },
+  "result": {
+    "id": "echoesofthepast:grief_emblem"
+  }
+}

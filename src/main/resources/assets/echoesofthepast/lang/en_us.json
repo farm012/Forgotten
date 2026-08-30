@@ -1,0 +1,38 @@
+{
+  "itemGroup.echoesofthepast": "Fading Memory",
+  "block.echoesofthepast.example_block": "Example Block",
+  "item.echoesofthepast.example_item": "Example Item",
+  "echoesofthepast.configuration.title": "Example Mod Configs",
+  "echoesofthepast.configuration.section.echoesofthepast.common.toml": "Example Mod Configs",
+  "echoesofthepast.configuration.section.echoesofthepast.common.toml.title": "Example Mod Configs",
+  "echoesofthepast.configuration.items": "Item List",
+  "echoesofthepast.configuration.logDirtBlock": "Log Dirt Block",
+
+  "item.echoesofthepast.comrades_remains": "Comrade's Remains",
+  "block.echoesofthepast.scattered_remains": "Scattered Remains",
+  "item.echoesofthepast.guardian_essence": "Guardian Essence",
+  "item.echoesofthepast.grief_emblem": "Grief Emblem",
+  "item.echoesofthepast.zeus_last_oath": "Zeus's Last Oath",
+
+  "entity.echoesofthepast.dead_comrade": "Dead Comrade",
+  "entity.echoesofthepast.tomb_guardian": "Tomb Guardian",
+
+
+
+  "echoesofthepast.configuration.magicNumberIntroduction": "Magic Number Text",
+  "echoesofthepast.configuration.magicNumber": "Magic Number",
+  "advancement.echoesofthepast.root": "Fading Memory",
+  "advancement.echoesofthepast.root.desc": "",
+  "advancement.echoesofthepast.something_isnt_right": "Something Isn't Right",
+  "advancement.echoesofthepast.something_isnt_right.desc": "The dream wasn't just a dream.",
+  "advancement.echoesofthepast.scattered": "Scattered",
+  "advancement.echoesofthepast.scattered.desc": "There may be more like this out there.",
+  "advancement.echoesofthepast.grief_grows": "The Grief Grows",
+  "advancement.echoesofthepast.grief_grows.desc": "It's getting harder to ignore.",
+  "advancement.echoesofthepast.a_way_out": "A Way Out",
+  "advancement.echoesofthepast.a_way_out.desc": "You have what's needed to make something.",
+  "advancement.echoesofthepast.someone_is_watching": "Someone Is Watching",
+  "advancement.echoesofthepast.someone_is_watching.desc": "This place was never truly abandoned.",
+  "advancement.echoesofthepast.laid_to_rest": "Laid to Rest",
+  "advancement.echoesofthepast.laid_to_rest.desc": "It won't guard this place any longer."
+}

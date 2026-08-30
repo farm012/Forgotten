@@ -1,0 +1,15 @@
+{
+  "parent": "echoesofthepast:someone_is_watching",
+  "display": {
+    "icon": { "id": "echoesofthepast:guardian_essence" },
+    "title": { "translate": "advancement.echoesofthepast.laid_to_rest" },
+    "description": { "translate": "advancement.echoesofthepast.laid_to_rest.desc" },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "killed_guardian": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": { "entity": { "type": "echoesofthepast:tomb_guardian" } }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "echoesofthepast:something_isnt_right",
+  "display": {
+    "icon": { "id": "echoesofthepast:comrades_remains" },
+    "title": { "translate": "advancement.echoesofthepast.scattered" },
+    "description": { "translate": "advancement.echoesofthepast.scattered.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "got_remains": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [{ "items": ["echoesofthepast:comrades_remains"] }] }
+    }
+  }
+}

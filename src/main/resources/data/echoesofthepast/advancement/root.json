@@ -1,0 +1,13 @@
+{
+  "display": {
+    "icon": { "id": "echoesofthepast:comrades_remains" },
+    "title": { "translate": "advancement.echoesofthepast.root" },
+    "description": { "translate": "advancement.echoesofthepast.root.desc" },
+    "background": "minecraft:block/deepslate",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": { "trigger": "minecraft:tick" }
+  }
+}

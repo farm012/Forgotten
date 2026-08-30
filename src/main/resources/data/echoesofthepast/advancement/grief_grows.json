@@ -1,0 +1,12 @@
+{
+  "parent": "echoesofthepast:scattered",
+  "display": {
+    "icon": { "id": "minecraft:soul_sand" },
+    "title": { "translate": "advancement.echoesofthepast.grief_grows" },
+    "description": { "translate": "advancement.echoesofthepast.grief_grows.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "impossible": { "trigger": "minecraft:impossible" }
+  }
+}

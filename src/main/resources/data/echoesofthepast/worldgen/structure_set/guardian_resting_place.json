@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "echoesofthepast:guardian_resting_place",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 48,
+    "separation": 12,
+    "salt": 800815
+  }
+}
