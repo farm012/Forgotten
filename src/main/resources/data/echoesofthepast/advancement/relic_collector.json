@@ -1,0 +1,21 @@
+{
+  "parent": "echoesofthepast:relic_ankh",
+  "display": {
+    "icon": { "id": "minecraft:nether_star" },
+    "title": { "translate": "advancement.echoesofthepast.relic_collector" },
+    "description": { "translate": "advancement.echoesofthepast.relic_collector.desc" },
+    "frame": "goal"
+  },
+  "criteria": {
+    "has_all": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["echoesofthepast:zeus_last_oath"] },
+          { "items": ["echoesofthepast:labyrinth_fang"] },
+          { "items": ["echoesofthepast:ankh"] }
+        ]
+      }
+    }
+  }
+}

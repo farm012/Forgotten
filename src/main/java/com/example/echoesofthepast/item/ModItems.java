@@ -5,6 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemLore;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -81,6 +82,75 @@ public class ModItems {
             ),
             props -> props
     );
+
+
+
+    public static final DeferredItem<LabyrinthFangItem> LABYRINTH_FANG = ITEMS.registerItem(
+            "labyrinth_fang",
+            props -> new LabyrinthFangItem(
+                    props.sword(ToolMaterial.GOLD, 9, -3.0f)
+                            .component(
+                                    net.minecraft.core.component.DataComponents.LORE,
+                                    new net.minecraft.world.item.component.ItemLore(List.of(
+                                            Component.literal(""),
+                                            Component.literal(""),
+                                            Component.literal("Echo of Asterion")
+                                                    .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD),
+                                            Component.literal(""),
+                                            Component.literal("The echo of Asterion's grief").withStyle(ChatFormatting.DARK_BLUE),
+                                            Component.literal("floods your mind, awakening").withStyle(ChatFormatting.DARK_BLUE),
+                                            Component.literal("a rage long buried.").withStyle(ChatFormatting.DARK_BLUE),
+                                            Component.literal(""),
+                                            Component.literal("For 100 seconds,").withStyle(ChatFormatting.RED),
+                                            Component.literal("+damage")
+                                                    .withStyle(ChatFormatting.RED)
+                                                    .append(Component.literal(" and resistance are")
+                                                            .withStyle(ChatFormatting.BLUE)),
+                                            Component.literal("greatly increased.").withStyle(ChatFormatting.DARK_BLUE)
+                                    ))
+                            )
+            ),
+            props -> props
+    );
+
+
+
+    public static final DeferredItem<Item> ANKH = ITEMS.registerItem(
+            "ankh",
+            props -> new Item(
+                    props
+                            .stacksTo(1)
+                            .component(
+                                    net.minecraft.core.component.DataComponents.LORE,
+                                    new net.minecraft.world.item.component.ItemLore(List.of(
+                                            Component.literal(""),
+                                            Component.literal(""),
+                                            Component.literal("Echo of the Eternal")
+                                                    .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD),
+                                            Component.literal(""),
+                                            Component.literal("An ancient echo clings to your soul,")
+                                                    .withStyle(ChatFormatting.DARK_BLUE),
+                                            Component.literal("shielding you from the afflictions")
+                                                    .withStyle(ChatFormatting.DARK_BLUE),
+                                            Component.literal("that once claimed the lives of others.")
+                                                    .withStyle(ChatFormatting.DARK_BLUE),
+                                            Component.literal(""),
+                                            Component.literal("Immunity to:")
+                                                    .withStyle(ChatFormatting.BLUE),
+                                            Component.literal("Fire, Poison & Slowness")
+                                                    .withStyle(ChatFormatting.RED),
+                                            Component.literal(""),
+                                            Component.literal("Revives you upon death.")
+                                                    .withStyle(ChatFormatting.GOLD),
+                                            Component.literal("Cooldown: 90 seconds")
+                                                    .withStyle(ChatFormatting.DARK_BLUE)
+                                    ))
+                            )
+            ),
+            props -> props
+    );
+
+
 
 
 

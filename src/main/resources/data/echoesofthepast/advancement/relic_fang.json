@@ -1,0 +1,15 @@
+{
+  "parent": "echoesofthepast:root",
+  "display": {
+    "icon": { "id": "echoesofthepast:labyrinth_fang" },
+    "title": { "translate": "advancement.echoesofthepast.relic_fang" },
+    "description": { "translate": "advancement.echoesofthepast.relic_fang.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "got_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [{ "items": ["echoesofthepast:labyrinth_fang"] }] }
+    }
+  }
+}

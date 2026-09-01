@@ -62,6 +62,8 @@ public class SleepHandler {
 
 
         DreamManager.tick(player);
+
+        com.example.echoesofthepast.item.AnkhManager.tickPassive(player); // this is way out of place but too lazy to add another method
     }
 
 

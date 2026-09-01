@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "EGE",
+    " E "
+  ],
+  "key": {
+    "E": "echoesofthepast:guardian_essence",
+    "G": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "echoesofthepast:ankh"
+  }
+}

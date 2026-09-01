@@ -1,0 +1,15 @@
+{
+  "parent": "echoesofthepast:root",
+  "display": {
+    "icon": { "id": "echoesofthepast:zeus_last_oath" },
+    "title": { "translate": "advancement.echoesofthepast.relic_zeus" },
+    "description": { "translate": "advancement.echoesofthepast.relic_zeus.desc" },
+    "frame": "task"
+  },
+  "criteria": {
+    "got_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [{ "items": ["echoesofthepast:zeus_last_oath"] }] }
+    }
+  }
+}

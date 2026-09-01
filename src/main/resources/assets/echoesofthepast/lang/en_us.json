@@ -13,6 +13,9 @@
   "item.echoesofthepast.guardian_essence": "Guardian Essence",
   "item.echoesofthepast.grief_emblem": "Grief Emblem",
   "item.echoesofthepast.zeus_last_oath": "Zeus's Last Oath",
+  "item.echoesofthepast.labyrinth_fang": "Labyrinth's Fang",
+  "item.echoesofthepast.ankh": "Ankh",
+
 
   "entity.echoesofthepast.dead_comrade": "Dead Comrade",
   "entity.echoesofthepast.tomb_guardian": "Tomb Guardian",
@@ -34,5 +37,14 @@
   "advancement.echoesofthepast.someone_is_watching": "Someone Is Watching",
   "advancement.echoesofthepast.someone_is_watching.desc": "This place was never truly abandoned.",
   "advancement.echoesofthepast.laid_to_rest": "Laid to Rest",
-  "advancement.echoesofthepast.laid_to_rest.desc": "It won't guard this place any longer."
+  "advancement.echoesofthepast.laid_to_rest.desc": "It won't guard this place any longer.",
+
+  "advancement.echoesofthepast.relic_zeus": "Wrath from the Sky",
+  "advancement.echoesofthepast.relic_zeus.desc": "Claim a relic that isn't from any past you remember.",
+  "advancement.echoesofthepast.relic_fang": "Echo of Asterion",
+  "advancement.echoesofthepast.relic_fang.desc": "Feel a stranger's rage awaken in your hands.",
+  "advancement.echoesofthepast.relic_ankh": "Echo of the Eternal",
+  "advancement.echoesofthepast.relic_ankh.desc": "Carry something older than memory itself.",
+  "advancement.echoesofthepast.relic_collector": "Three Echoes",
+  "advancement.echoesofthepast.relic_collector.desc": "Hold all that remains of everyone who came before you."
 }

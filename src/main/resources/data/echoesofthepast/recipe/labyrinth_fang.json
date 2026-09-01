@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DE ",
+    "DG ",
+    " E "
+  ],
+  "key": {
+    "E": "echoesofthepast:guardian_essence",
+    "G": "minecraft:gold_ingot",
+    "D": "minecraft:diamond"
+  },
+  "result": {
+    "id": "echoesofthepast:labyrinth_fang"
+  }
+}
