@@ -59,7 +59,7 @@ public class HallucinationManager {
 
         level.addFreshEntity(comrade);
 
-        // a quiet unease line, separate from the ambient dread whispers
+        //a quiet unease line, separate from the ambient dread whispers (hows my language skills? wait no one is looking at that anyways *sighs*)
         if (player.getRandom().nextFloat() < 0.5F) {
             player.sendSystemMessage(
                     Component.literal(FLICKER_LINES[player.getRandom().nextInt(FLICKER_LINES.length)])
